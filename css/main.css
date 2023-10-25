@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html{font-size: 62.5%;} /*10px*/
+* { margin: 0; padding: 0; box-sizing: border-box; }
+table { border-collapse: collapse; width: 100%; }
+ol,ul { list-style: none; }
+h1,h2,h3,h4,h5,h6 { font-size: 100%; }
+img { vertical-align: top; }
+a { text-decoration:none; color:#000; }
+caption { display: none; }
+address,em { font-style: normal; }
+button {border: 0; background: transparent;}
+fieldset,input,textarea,select {vertical-align: middle; border: 0;}
+legend,caption {display: none;}
+
+
+/* 공통사항 */
+body { font-family: 'Noto Sans KR', sans-serif; font-size: 1.6rem; line-height: 1.6; color: #000; }
+#wrap { min-width: 1200px; overflow-x: hidden; background: url('../images/main_bg.png') no-repeat center top; }
+.inner { min-width: calc(100% - 200px); margin: 0 auto; }
+
+@media (max-width:1600px) {
+      .inner {max-width: calc(100% - 160px);}
+}
+@media (max-width:1400px) {
+    .inner {max-width: calc(100% - 140px);}
+}
+@media (max-width:1200px) {
+    .inner {max-width: calc(100% - 120px);}
+}
+@media (max-width:1000px) {
+    .inner {max-width: calc(100% - 100px);}
+}
+@media (max-width:768px) {
+    .inner {max-width: calc(100% - 50px);}
+}
+
+/* header */
+#header{background: rgba(255,255,255,0.8); position: fixed; width: 100%; border: 1px solid #ccc; z-index: 999;}
+#header .inner {align-items: center; position: relative; display: flex; justify-content: space-between; min-width: 1201px;}
+#header h1 {position: absolute; left:50%; transform: translateX(-50%); top:20px;}
+
+#header .gnb {display: flex;}
+#header .gnb  > li {position: relative; }
+#header .gnb > li > a {display: block; font-size: 20px; padding: 10px 20px;}
+#header .gnb > li > a::after {transition: all 0.5s; transform: translateX(-50%); position:absolute; left: 50%; bottom: -10px;  content: ''; width: 0; height: 3px; display: block; background: #000;}
+
+#header .gnb > li:hover > a::after{width: 100%;}
+
+
+#header .gnb > li .depth2{display: none; width: 500px; position: absolute; left: 0px; top: 50px; }
+#header .gnb > li .depth2 li {display: inline-block;}
+#header .gnb > li .depth2 li a {display: block; padding: 20px;}
+
+#header .gnb > li:hover .depth2 {display: block;}
+
+#header .ham{width: 24px; height: 24px; background: url(../images/ham.svg) no-repeat center; cursor: pointer; display: none; color: transparent;}
+
+@media (max-width:1200px) {
+    #header .ham {display: block;} 
+    #header .gnb {display: none;} 
+    #header .util li:not(:last-child) {display: none;}
+}
+
+#header .util {display: flex; gap:20px;}
+#header .util .btn_search {width: 24px; height: 24px; background: url(../images/search.svg) no-repeat center; color: transparent; text-indent: -9999999px; cursor: pointer;}
+
+
+#main {padding-top: 73px;}
+#main section {padding: 100px 0;}
+#main h2 {font-size: 5rem;}
+#main h2 + p {padding: 20px 0; font-size: 2.4rem; color: #999;}
+#main .btn_more a {border-bottom: 1px solid #ccc; color: #999; font-weight: 700;}
+
+@media (max-width: 1200px) {
+    #main h2 {font-size: 4rem;}
+    #main h2 + p {font-size: 2rem;}
+}
+
+/* sec1 */
+#sec1 {padding: 100px 0; text-align: center;}
+#sec1 h2 {font-family: 'DM Serif Text', serif; font-size: 8rem; font-weight: 400;}
+#sec1 h2 + p {padding: 20px 0; font-size: 2.4rem; color: #999; letter-spacing: -1px;}
+#sec1 img {max-width: 100%;}
+
+@media (max-width: 1200px) {
+    #sec1 h2 {font-size: 6rem;}
+    #sec1 h2 + p {font-size: 1.6rem;}
+}
+
+
+/* sec2 */
+#sec2 {position: relative; padding: 100px 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}
+#sec2::before{position: absolute; left: 50%; top: 0; content:''; width: 1px; height: 100%; display: block; background: #ccc;}
+#sec2 .inner {flex-wrap: wrap; align-items: center; display: flex; justify-content: space-between;}
+#sec2 .inner > * {width: calc((100% - 200px) / 2);}
+#sec2 .txt {text-align: center;}
+#sec2 img {width: 100%; max-width: 100%;}
+
+@media (max-width:1200px) {   
+    #sec2 .inner > * {width: 100%} 
+    #sec2::before {display: none;}
+}
+
+
+/* sec3 */
+#sec3 {text-align: center;}
+#sec3 ul {display: flex; justify-content: space-between;}
+#sec3 ul li {width: calc((100% - 90px) / 4); position: relative;}
+#sec3 ul li img {max-width: 100%;}
+#sec3 ul li span {display: inline-block; position: absolute; left: 0; top: 0; background: #000; color: #fff; padding: 10px 20px;}
+#sec3 br {display: none;}
+
+
+@media (max-width: 1200px;) {
+    #sec3 ul li {width: calc((100% - 30px) / 2);}
+    #sec3 ul li:nth-child(n+3) {display: none;}
+}
+@media (max-width: 768px;) {
+    #sec3 br {display: block;}
+    #sec3 ul li {width: 100%;}
+    #sec3 ul li:not(:first-child) {display: none;}
+}
+
+.txt_center {text-align: center;}
+
+/* sec4 */
+#sec4 {text-align: center; }
+#sec4 h2 {font-size: 5rem;}
+#sec4 h2 + p {padding: 20px 0; font-size: 2.4rem; color: #999; letter-spacing: -1px;}
+#sec4 span {color: #999; padding: 10px 20px;}
+
+#sec4 .story {display: flex; justify-content: center; align-items: center;}
+#sec4 .story img {width: calc((100% - 200px) / 4);}
+
+
+/* footer */
+#footer {padding: 100px 0;}
+
+#footer .search{display: flex; justify-content: center;}
+#footer input[type="text"] {padding: 0 10px; font-size: 1.6rem; font-family: 'Noto Sans KR', sans-serif; border: 1px solid #333; height: 40px;}
+#footer input::placeholder {color: #ccc;}
+#footer input[type="submit"] {width: 80px; height:40px; background: #333; color:#fff;}
+
+#footer address {padding: 20px 0; display: flex; gap: 20px; justify-content: center; color: #999;}
+#footer .copy{padding-bottom: 50px; color: #999; display: flex; justify-content: center;}
+
+#footer .footer_logo {position: relative; padding-top: 20px;}
+#footer .footer_logo::before{position: absolute; left: 50%; transform: translateX(-50%); content:''; display: block; width: 40px; height: 1px; background: #ccc;}
+
+@media (max-width: 768px) {
+    #footer {font-size: 1.4rem;}
+    #footer address {flex-direction: column; gap: 10px;}
+}
